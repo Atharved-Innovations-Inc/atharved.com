@@ -24,6 +24,10 @@
   --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
   --radius: 12px;
+  --emerald: #059669;
+  --emerald-light: #d1fae5;
+  --purple: #7c3aed;
+  --purple-light: #ede9fe;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -33,8 +37,6 @@
     --bg-dark: #0a0e18;
     --text: #e2e8f0;
     --text-sec: #8896a8;
-    --text-on-dark: #f1f5f9;
-    --text-on-dark-sec: #94a3b8;
     --accent: #60a5fa;
     --accent-light: #1e3a5f;
     --accent-glow: #93c5fd;
@@ -48,6 +50,10 @@
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
     --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+    --emerald: #34d399;
+    --emerald-light: #0d2818;
+    --purple: #a78bfa;
+    --purple-light: #1e1536;
     color-scheme: dark;
   }
 }
@@ -58,8 +64,6 @@
   --bg-dark: #0a0e18;
   --text: #e2e8f0;
   --text-sec: #8896a8;
-  --text-on-dark: #f1f5f9;
-  --text-on-dark-sec: #94a3b8;
   --accent: #60a5fa;
   --accent-light: #1e3a5f;
   --accent-glow: #93c5fd;
@@ -73,6 +77,10 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+  --emerald: #34d399;
+  --emerald-light: #0d2818;
+  --purple: #a78bfa;
+  --purple-light: #1e1536;
   color-scheme: dark;
 }
 
@@ -191,7 +199,7 @@ body {
 .hero-sub {
   font-size: 1.1rem;
   color: var(--text-on-dark-sec);
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto 36px;
   line-height: 1.7;
 }
@@ -214,8 +222,6 @@ body {
 .btn-primary:hover { background: #1d4ed8; }
 .btn-ghost { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
 .btn-ghost:hover { background: rgba(255,255,255,0.14); }
-.btn-dark { background: var(--text); color: var(--bg); }
-.btn-dark:hover { opacity: 0.9; }
 
 .hero-patents {
   display: flex;
@@ -264,6 +270,113 @@ section { padding: 80px 16px; }
   color: var(--text-sec);
   line-height: 1.75;
 }
+
+/* ── PRODUCTS ── */
+.products-sec { background: var(--bg-alt); }
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.2s;
+}
+.product-card:hover { box-shadow: var(--shadow-lg); }
+.product-header {
+  padding: 32px 28px 24px;
+}
+.product-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+.product-card:nth-child(1) .product-icon { background: var(--accent-light); color: var(--accent); }
+.product-card:nth-child(2) .product-icon { background: var(--emerald-light); color: var(--emerald); }
+.product-header h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.product-header .product-type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-sec);
+  margin-bottom: 14px;
+}
+.product-header p {
+  font-size: 0.88rem;
+  color: var(--text-sec);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.product-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 28px 24px;
+}
+.pf-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+.pf-check {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  margin-top: 1px;
+}
+.product-card:nth-child(1) .pf-check { background: var(--accent-light); color: var(--accent); }
+.product-card:nth-child(2) .pf-check { background: var(--emerald-light); color: var(--emerald); }
+.product-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.15s;
+}
+.product-link:hover { gap: 10px; }
+.product-card:nth-child(1) .product-link { color: var(--accent); }
+.product-card:nth-child(2) .product-link { color: var(--emerald); }
+.product-status {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.product-card:nth-child(1) .product-status { background: var(--accent-light); color: var(--accent); }
+.product-card:nth-child(2) .product-status { background: var(--emerald-light); color: var(--emerald); }
 
 /* ── VIDEO SECTION ── */
 .video-sec { background: var(--bg); padding: 0 16px 80px; }
@@ -416,6 +529,58 @@ section { padding: 80px 16px; }
   line-height: 1.5;
 }
 
+/* ── RAISESTARTUP ── */
+.rs-sec { background: var(--bg); }
+.rs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.rs-text .sec-tag { text-align: left; }
+.rs-text h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.rs-text p {
+  font-size: 0.9rem;
+  color: var(--text-sec);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.rs-text .btn { margin-top: 8px; }
+.rs-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.rs-feat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.rs-feat-icon {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.rs-feat h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.rs-feat p {
+  font-size: 0.78rem;
+  color: var(--text-sec);
+  line-height: 1.55;
+}
+
 /* ── FOR RETAILERS ── */
 .retail-sec { background: var(--bg-alt); }
 .retail-grid {
@@ -453,6 +618,95 @@ section { padding: 80px 16px; }
   font-size: 0.84rem;
   color: var(--text-sec);
   line-height: 1.65;
+}
+
+/* ── COMPANY ── */
+.company-sec { background: var(--bg); }
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.company-text h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.company-text p {
+  font-size: 0.9rem;
+  color: var(--text-sec);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.company-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cv-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.cv-item h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.cv-item p {
+  font-size: 0.78rem;
+  color: var(--text-sec);
+  line-height: 1.55;
+}
+.company-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cf-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.cf-card .cf-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 2px;
+}
+.cf-card .cf-lbl {
+  font-size: 0.76rem;
+  color: var(--text-sec);
+}
+.company-entities {
+  margin-top: 14px;
+}
+.entity-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.entity-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.entity-card p {
+  font-size: 0.78rem;
+  color: var(--text-sec);
 }
 
 /* ── TIMELINE ── */
@@ -568,6 +822,7 @@ section { padding: 80px 16px; }
   font-size: 0.78rem;
   color: var(--text-on-dark-sec);
 }
+.cta-card a { color: var(--accent-glow); text-decoration: none; }
 
 /* ── FOOTER ── */
 .foot {
@@ -580,11 +835,16 @@ section { padding: 80px 16px; }
   font-size: 0.72rem;
   color: var(--text-on-dark-sec);
 }
+.foot a {
+  color: var(--accent-glow);
+  text-decoration: none;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav-links a:not(.nav-cta) { display: none; }
   .hero { padding: 72px 16px 64px; }
+  .products-grid { grid-template-columns: 1fr; }
   .problem-grid, .retail-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr 1fr; }
   .tl-track { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -593,10 +853,13 @@ section { padding: 80px 16px; }
   .tl-node::before { top: 2px; }
   .cta-cards { grid-template-columns: 1fr; }
   .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  .rs-grid, .company-grid { grid-template-columns: 1fr; gap: 32px; }
+  .rs-features { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
   .how-grid { grid-template-columns: 1fr; }
   .specs-grid { grid-template-columns: 1fr; }
+  .rs-features, .company-values, .company-facts { grid-template-columns: 1fr; }
   section { padding: 56px 16px; }
 }
 </style>
@@ -606,10 +869,10 @@ section { padding: 80px 16px; }
   <div class="nav-inner">
     <a href="#" class="logo">atharved<span>.</span></a>
     <div class="nav-links">
-      <a href="#how">Product</a>
-      <a href="#retailers">For Retailers</a>
+      <a href="#products">Products</a>
+      <a href="#company">Company</a>
       <a href="#progress">Progress</a>
-      <a href="#contact" class="nav-cta">Request Pilot</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
   </div>
 </nav>
@@ -618,11 +881,11 @@ section { padding: 80px 16px; }
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow"><span class="dot"></span> Pilot Launch &mdash; December 2026</div>
-    <h1>Your cart is the<br><span class="grad">cashier</span></h1>
-    <p class="hero-sub">The Avadh Dash Cart scans, weighs, sorts, and bags every item autonomously &mdash; inside the cart &mdash; while the shopper shops. No cashier. No self-scan. No queue.</p>
+    <h1>Building the future<br>of <span class="grad">commerce</span></h1>
+    <p class="hero-sub">Atharved Innovations builds technology that removes friction from commerce &mdash; autonomous hardware for retail stores and software for startup fundraising.</p>
     <div class="hero-actions">
-      <a href="#demo" class="btn btn-primary">&#9654;&ensp;Watch Demo</a>
-      <a href="#contact" class="btn btn-ghost">Request a Pilot</a>
+      <a href="#products" class="btn btn-primary">Our Products</a>
+      <a href="#contact" class="btn btn-ghost">Partner With Us</a>
     </div>
     <div class="hero-patents">
       <div class="patent-tag">&#10003; US Patent</div>
@@ -632,7 +895,65 @@ section { padding: 80px 16px; }
   </div>
 </section>
 
-<!-- VIDEO -->
+<!-- PRODUCTS -->
+<section class="products-sec" id="products">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <div class="sec-tag">Products</div>
+      <h2 class="sec-title">Two products. One mission.</h2>
+      <p class="sec-desc">We build technology that eliminates unnecessary steps in commerce &mdash; whether that's checkout lines in a store or paperwork in a fundraise.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-icon">&#9881;</div>
+          <div class="product-type">Hardware &middot; Robotics</div>
+          <h3>Avadh Dash Cart</h3>
+          <p>An autonomous shopping cart that scans, weighs, picks, sorts, and bags every item while the shopper walks the aisles. No cashier. No self-scan. No queue.</p>
+        </div>
+        <div class="product-features">
+          <div class="pf-item"><span class="pf-check">&#10003;</span> 3-axis robotic gantry with Fin-Ray grippers</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Dual camera vision + real-time weight verification</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Battery powered, enclosed, under 40 dB</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Patented in US, EU, and India</div>
+        </div>
+        <div class="product-footer">
+          <a href="#dashcart" class="product-link">Learn more &rarr;</a>
+          <span class="product-status">Pilot Dec 2026</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-icon">&#9733;</div>
+          <div class="product-type">Software &middot; SaaS</div>
+          <h3>RaiseStartup</h3>
+          <p>A fundraising platform that connects startups with investors and chartered accountants. Manage your entire raise &mdash; from pitch to close &mdash; in one place.</p>
+        </div>
+        <div class="product-features">
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Investor CRM &mdash; track conversations and commitments</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> CA-fulfilled compliance for Indian startups</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Stripe (USD) + Razorpay (INR) payments</div>
+          <div class="pf-item"><span class="pf-check">&#10003;</span> Automated outreach and lead management</div>
+        </div>
+        <div class="product-footer">
+          <a href="#raisestartup" class="product-link">Learn more &rarr;</a>
+          <span class="product-status">Live</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVADH DASH CART VIDEO -->
+<section id="dashcart">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <div class="sec-tag">Avadh Dash Cart</div>
+      <h2 class="sec-title">Your cart is the cashier</h2>
+      <p class="sec-desc">The shopper drops items in and keeps walking. The cart handles scanning, weighing, sorting, and payment autonomously.</p>
+    </div>
+  </div>
+</section>
 <div class="video-sec" id="demo">
   <div class="video-card">
     <div class="video-embed">
@@ -646,31 +967,6 @@ section { padding: 80px 16px; }
     </div>
   </div>
 </div>
-
-<!-- PROBLEM -->
-<section class="problem-sec" id="problem">
-  <div class="sec-inner">
-    <div class="sec-header">
-      <div class="sec-tag">The Problem</div>
-      <h2 class="sec-title">Self-checkout made things worse</h2>
-      <p class="sec-desc">Self-checkout was supposed to fix retail. Instead, theft exploded, queues stayed, and shoppers hate it. The fundamental problem remains: someone still has to scan every item.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="p-card">
-        <div class="num">67%</div>
-        <div class="label">Rise in shrinkage at self-checkout vs staffed lanes</div>
-      </div>
-      <div class="p-card">
-        <div class="num">$300B+</div>
-        <div class="label">Global annual spend on checkout operations</div>
-      </div>
-      <div class="p-card">
-        <div class="num">73%</div>
-        <div class="label">Shoppers frustrated with the self-checkout experience</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- HOW IT WORKS -->
 <section id="how">
@@ -770,6 +1066,109 @@ section { padding: 80px 16px; }
   </div>
 </section>
 
+<!-- RAISESTARTUP -->
+<section class="rs-sec" id="raisestartup">
+  <div class="sec-inner">
+    <div class="rs-grid">
+      <div class="rs-text">
+        <div class="sec-tag">RaiseStartup</div>
+        <h3>The fundraising platform for startups</h3>
+        <p>RaiseStartup helps founders raise capital faster. Track investors, manage your pipeline, automate outreach, and close your round &mdash; all in one platform.</p>
+        <p>Indian startups get CA-fulfilled compliance services built in. Global startups get Stripe-powered payments and investor CRM out of the box.</p>
+        <a href="https://raisestartup.io" target="_blank" rel="noopener" class="btn btn-primary">Visit raisestartup.io &rarr;</a>
+      </div>
+      <div class="rs-features">
+        <div class="rs-feat">
+          <div class="rs-feat-icon">&#128200;</div>
+          <h4>Investor CRM</h4>
+          <p>Track every investor conversation, meeting, and commitment in one pipeline view.</p>
+        </div>
+        <div class="rs-feat">
+          <div class="rs-feat-icon">&#128231;</div>
+          <h4>Automated Outreach</h4>
+          <p>Targeted email campaigns to qualified investors. Track opens, replies, and conversions.</p>
+        </div>
+        <div class="rs-feat">
+          <div class="rs-feat-icon">&#128176;</div>
+          <h4>Payment Processing</h4>
+          <p>Stripe for USD and Razorpay for INR. Accept investment commitments and service payments.</p>
+        </div>
+        <div class="rs-feat">
+          <div class="rs-feat-icon">&#128221;</div>
+          <h4>CA Services (India)</h4>
+          <p>Chartered accountant-fulfilled compliance, valuation, and regulatory filing for Indian startups.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company-sec" id="company">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <div class="sec-tag">Company</div>
+      <h2 class="sec-title">About Atharved Innovations</h2>
+      <p class="sec-desc">A deep-tech company building products that remove friction from commerce &mdash; at the checkout counter and in the fundraising process.</p>
+    </div>
+    <div class="company-grid">
+      <div class="company-text">
+        <h3>From Jabalpur to the world</h3>
+        <p>Atharved Innovations was founded in 2026 with a single idea: the checkout line is a solved problem &mdash; we just haven't deployed the solution yet. We built a working autonomous shopping cart prototype, secured patents in three markets, and are now fabricating the production cart for pilot deployment.</p>
+        <p>Along the way, we built RaiseStartup &mdash; a fundraising platform born from our own experience raising capital. It now serves startups across India and globally, connecting founders with investors and providing CA-fulfilled compliance services.</p>
+        <div class="company-values">
+          <div class="cv-item">
+            <h4>Ship, then polish</h4>
+            <p>Working prototypes over slide decks. Real demos over projections.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Own the stack</h4>
+            <p>Hardware, firmware, software, and payments &mdash; built in-house.</p>
+          </div>
+          <div class="cv-item">
+            <h4>India-first, global-ready</h4>
+            <p>Engineered in Jabalpur. Patented worldwide. Priced for scale.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Open to partners</h4>
+            <p>Retailers, investors, and CAs &mdash; we build with our customers.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="company-facts">
+          <div class="cf-card">
+            <div class="cf-val">2026</div>
+            <div class="cf-lbl">Founded</div>
+          </div>
+          <div class="cf-card">
+            <div class="cf-val">3</div>
+            <div class="cf-lbl">Patents (US, EU, India)</div>
+          </div>
+          <div class="cf-card">
+            <div class="cf-val">2</div>
+            <div class="cf-lbl">Live Products</div>
+          </div>
+          <div class="cf-card">
+            <div class="cf-val">Dec &rsquo;26</div>
+            <div class="cf-lbl">Cart Pilot Launch</div>
+          </div>
+        </div>
+        <div class="company-entities">
+          <div class="entity-card">
+            <h4>Atharved Innovations Inc.</h4>
+            <p>Delaware, USA &mdash; Global operations, Stripe payments</p>
+          </div>
+          <div class="entity-card">
+            <h4>Avadhscart Private Limited</h4>
+            <p>Jabalpur, India &mdash; R&amp;D, manufacturing, Razorpay payments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROGRESS -->
 <section id="progress">
   <div class="sec-inner">
@@ -806,10 +1205,10 @@ section { padding: 80px 16px; }
 <!-- CTA / CONTACT -->
 <section class="cta-sec" id="contact">
   <div class="cta-inner">
-    <h2>Ready to eliminate checkout?</h2>
-    <p>We're looking for retail partners to deploy the Avadh Dash Cart in-store. Start with a single-store pilot &mdash; we handle the hardware, software, and integration.</p>
+    <h2>Let's build together</h2>
+    <p>Whether you're a retailer ready to eliminate checkout, a startup raising capital, or an investor looking at deep-tech &mdash; we'd like to hear from you.</p>
     <div class="cta-email">avadh@atharved.com</div>
-    <a href="mailto:avadh@atharved.com?subject=Avadh Dash Cart — Pilot Inquiry" class="btn btn-primary">Start a Conversation</a>
+    <a href="mailto:avadh@atharved.com?subject=Atharved — Let's Talk" class="btn btn-primary">Start a Conversation</a>
     <div class="cta-cards">
       <div class="cta-card">
         <div class="cc-label">US / Global</div>
@@ -819,7 +1218,19 @@ section { padding: 80px 16px; }
       <div class="cta-card">
         <div class="cc-label">India</div>
         <div class="cc-val">Avadhscart Pvt Ltd</div>
-        <div class="cc-sub">Jabalpur, India</div>
+        <div class="cc-sub">Jabalpur, India &mdash; <a href="https://avadhscart.com">avadhscart.com</a></div>
+      </div>
+    </div>
+    <div class="cta-cards" style="margin-top:12px">
+      <div class="cta-card">
+        <div class="cc-label">Smart Cart</div>
+        <div class="cc-val">Avadh Dash Cart</div>
+        <div class="cc-sub"><a href="https://avadhscart.com">avadhscart.com</a></div>
+      </div>
+      <div class="cta-card">
+        <div class="cc-label">Fundraising Platform</div>
+        <div class="cc-val">RaiseStartup</div>
+        <div class="cc-sub"><a href="https://raisestartup.io">raisestartup.io</a></div>
       </div>
     </div>
   </div>
@@ -827,5 +1238,5 @@ section { padding: 80px 16px; }
 
 <!-- FOOTER -->
 <footer class="foot">
-  <p>&copy; 2026 Atharved Innovations Inc. &mdash; All rights reserved. &ensp;|&ensp; Patents: US, EU, India</p>
+  <p>&copy; 2026 Atharved Innovations Inc. &mdash; All rights reserved. &ensp;|&ensp; Patents: US, EU, India &ensp;|&ensp; <a href="https://avadhscart.com">avadhscart.com</a> &ensp;|&ensp; <a href="https://raisestartup.io">raisestartup.io</a></p>
 </footer>
