@@ -1,0 +1,605 @@
+<title>Atharved Innovations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f0f5fa;
+  --bg-dark: #0b1222;
+  --text: #1a2332;
+  --text-sec: #5a6a7e;
+  --text-inv: #e8edf4;
+  --text-inv-sec: #94a3b8;
+  --accent: #0c7fd6;
+  --accent-glow: #3ba0eb;
+  --green: #0fa968;
+  --green-bg: #ecfdf5;
+  --amber: #d97706;
+  --border: #dde4ed;
+  --card: #ffffff;
+  --card-shadow: 0 1px 3px rgba(11,18,34,0.06), 0 8px 24px rgba(11,18,34,0.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --bg-alt: #151b26;
+    --bg-dark: #080c14;
+    --text: #e2e8f0;
+    --text-sec: #8896a8;
+    --text-inv: #e8edf4;
+    --text-inv-sec: #94a3b8;
+    --accent: #3ba0eb;
+    --accent-glow: #5bb8f5;
+    --green: #34d399;
+    --green-bg: #0d2818;
+    --amber: #fbbf24;
+    --border: #2a3444;
+    --card: #1a2332;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-alt: #151b26;
+  --bg-dark: #080c14;
+  --text: #e2e8f0;
+  --text-sec: #8896a8;
+  --text-inv: #e8edf4;
+  --text-inv-sec: #94a3b8;
+  --accent: #3ba0eb;
+  --accent-glow: #5bb8f5;
+  --green: #34d399;
+  --green-bg: #0d2818;
+  --amber: #fbbf24;
+  --border: #2a3444;
+  --card: #1a2332;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15);
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-sec);
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.88; }
+
+/* HERO */
+.hero {
+  background: var(--bg-dark);
+  padding: 80px 16px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(12,127,214,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(15,169,104,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-glow);
+  border: 1px solid rgba(59,160,235,0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-inv);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent-glow);
+}
+.hero p {
+  font-size: 1.05rem;
+  color: var(--text-inv-sec);
+  max-width: 540px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn:hover { opacity: 0.88; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-outline { background: transparent; color: var(--text-inv); border: 1px solid rgba(255,255,255,0.2); }
+
+/* SECTIONS */
+section { padding: 64px 16px; }
+.section-inner { max-width: 960px; margin: 0 auto; }
+.section-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-sec);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+/* PROBLEM */
+.problem { background: var(--bg-alt); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+.stat-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-sec);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* HOW IT WORKS */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  counter-reset: step;
+}
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 22px;
+  box-shadow: var(--card-shadow);
+  counter-increment: step;
+  position: relative;
+}
+.step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: 'Sora', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.step h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 10px 0 6px;
+  letter-spacing: -0.01em;
+}
+.step p {
+  font-size: 0.82rem;
+  color: var(--text-sec);
+  line-height: 1.6;
+}
+
+/* MILESTONES */
+.milestones { background: var(--bg-alt); }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 28px 0;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--bg-alt);
+}
+.tl-dot.pending {
+  background: var(--amber);
+}
+.tl-dot.future {
+  background: var(--border);
+}
+.tl-date {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.tl-desc {
+  font-size: 0.8rem;
+  color: var(--text-sec);
+  line-height: 1.5;
+}
+
+/* DEMO */
+.demo-card {
+  background: var(--bg-dark);
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.demo-card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-inv);
+  margin-bottom: 10px;
+}
+.demo-card p {
+  font-size: 0.88rem;
+  color: var(--text-inv-sec);
+  margin-bottom: 24px;
+}
+.demo-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* CONTACT */
+.contact { background: var(--bg-alt); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.contact-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+.contact-item .cl {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.contact-item .cv {
+  font-size: 0.92rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+.contact-item .cv-sub {
+  font-size: 0.8rem;
+  color: var(--text-sec);
+  margin-top: 2px;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg-dark);
+  padding: 28px 16px;
+  text-align: center;
+}
+.footer p {
+  font-size: 0.75rem;
+  color: var(--text-inv-sec);
+}
+.footer strong {
+  color: var(--text-inv);
+  font-weight: 600;
+}
+
+/* IP BADGE */
+.ip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.ip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-bg);
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding: 56px 16px 48px; }
+  section { padding: 48px 16px; }
+  .demo-card { padding: 28px 20px; }
+}
+</style>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">atharved<span>.</span></div>
+    <div class="nav-links">
+      <a href="#solution">Product</a>
+      <a href="#milestones">Progress</a>
+      <a href="#demo">Demo</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Pilot Launch &mdash; December 2026</div>
+    <h1>The checkout line<br>is <em>obsolete</em></h1>
+    <p>Atharved Innovations builds autonomous retail technology. Our first product &mdash; the Avadh Dash Cart &mdash; scans, weighs, sorts, and bags groceries automatically. No cashier. No self-scan. Just shop and go.</p>
+    <div class="hero-btns">
+      <a href="https://youtu.be/FsRX-6Sk3mU" target="_blank" rel="noopener" class="btn btn-primary">&#9654; Watch Demo</a>
+      <a href="#contact" class="btn btn-outline">Request a Pilot</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="section-inner">
+    <div class="section-label">The Problem</div>
+    <div class="section-title">Self-checkout made things worse</div>
+    <div class="section-desc">Self-checkout was supposed to fix retail checkout. Instead, theft rose 67%, queues stayed, and shoppers hate it. The core problem remains: someone still has to scan every item.</div>
+    <div class="problem-grid">
+      <div class="stat-card">
+        <div class="stat-num">67%</div>
+        <div class="stat-label">Rise in shrinkage at self-checkout stations vs staffed lanes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$300B+</div>
+        <div class="stat-label">Global spend on checkout operations annually</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">73%</div>
+        <div class="stat-label">Of shoppers report frustration with self-checkout experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="section-inner">
+    <div class="section-label">The Solution</div>
+    <div class="section-title">A cart that does the checkout for you</div>
+    <div class="section-desc">The Avadh Dash Cart handles the entire checkout process inside the cart itself &mdash; while the shopper shops. Every item is scanned, weighed, verified, and sorted automatically.</div>
+    <div class="steps">
+      <div class="step">
+        <h3>Drop In</h3>
+        <p>Shopper places item into the cart's intake area. A conveyor moves it to the scanning station.</p>
+      </div>
+      <div class="step">
+        <h3>Scan &amp; Weigh</h3>
+        <p>Camera + barcode scanner identify the item. Load cell verifies weight against the catalog. Mismatches are flagged instantly.</p>
+      </div>
+      <div class="step">
+        <h3>Pick &amp; Sort</h3>
+        <p>A 3-axis robotic gantry picks the item and places it into the correct bin &mdash; fragile, heavy, or general &mdash; with Fin-Ray soft-grip fingers.</p>
+      </div>
+      <div class="step">
+        <h3>Pay &amp; Go</h3>
+        <p>Running total displayed on the tablet. Checkout is digital &mdash; tap to pay and walk out. No queue, no cashier, no self-scan station.</p>
+      </div>
+    </div>
+    <div class="ip-row">
+      <div class="ip-badge">&#10003; US Patent Approved</div>
+      <div class="ip-badge">&#10003; EU Patent Approved</div>
+      <div class="ip-badge">&#10003; India Patent Approved</div>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="milestones" id="milestones">
+  <div class="section-inner">
+    <div class="section-label">Progress</div>
+    <div class="section-title">From prototype to product</div>
+    <div class="section-desc">Built and validated at the bench. Now moving to a production-ready enclosed cart for retail deployment.</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Sep 2026</div>
+        <div class="tl-title">Working prototype &mdash; full autonomous journey</div>
+        <div class="tl-desc">Intake, scan, weigh, identify, pick, sort, and display &mdash; all working end-to-end on a bench prototype.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Oct 2026</div>
+        <div class="tl-title">Patents approved &mdash; US, EU, India</div>
+        <div class="tl-desc">Core technology protected across all target markets.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot pending"></div>
+        <div class="tl-date">Oct &ndash; Nov 2026</div>
+        <div class="tl-title">Production cart &mdash; CAD design + fabrication</div>
+        <div class="tl-desc">Enclosed aluminium + steel cart with hidden gantry, opaque panels, and integrated electronics. Partner selection underway.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future"></div>
+        <div class="tl-date">Dec 2026</div>
+        <div class="tl-title">Pilot launch</div>
+        <div class="tl-desc">Production-ready cart deployed for in-store pilot with retail partners.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="section-inner">
+    <div class="demo-card">
+      <h3>See it in action</h3>
+      <p>Full autonomous journey &mdash; item goes in, gets scanned, weighed, picked, sorted, and displayed. No human intervention.</p>
+      <div class="demo-links">
+        <a href="https://youtu.be/FsRX-6Sk3mU" target="_blank" rel="noopener" class="btn btn-primary">&#9654; Full Demo</a>
+        <a href="https://youtu.be/CiMlLhmwNiM" target="_blank" rel="noopener" class="btn btn-outline">Phase 1 Video</a>
+        <a href="https://youtu.be/CiMlLhmwNiM" target="_blank" rel="noopener" class="btn btn-outline">&#9881; Hardware Build</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <div class="section-title">Interested in a pilot?</div>
+    <div class="section-desc">We're looking for retail partners to deploy the Avadh Dash Cart in-store. Reach out to discuss a pilot program.</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="cl">Email</div>
+        <div class="cv">avadh@atharved.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Company</div>
+        <div class="cv">Atharved Innovations Inc.</div>
+        <div class="cv-sub">Delaware, USA</div>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Website</div>
+        <div class="cv">atharved.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="cl">India Entity</div>
+        <div class="cv">Avadhscart Pvt Ltd</div>
+        <div class="cv-sub">Jabalpur, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>&copy; 2026 <strong>Atharved Innovations Inc.</strong> &mdash; All rights reserved. &nbsp;|&nbsp; Patents: US, EU, India</p>
+</div>
